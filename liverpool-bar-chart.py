@@ -44,15 +44,21 @@ data = {
 
 players = list(data[1998].keys())
 values = list(data[1998].values())
+
 stats = [];
 for v in values:
     stats.append(v['goals'])
   
 fig = plt.figure(figsize = (10, 5))
- 
+    
 # creating the bar plot
 plt.bar(players, stats, color ='maroon', 
         width = 0.4)
+
+for index, value in enumerate(stats):
+    plt.text(index, value + 1, str(value))
+    
+plt.ylim(0, max(stats) + 5)
  
 plt.xlabel("Players")
 plt.ylabel("No. of goals scored")
