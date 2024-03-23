@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt 
 
-def barChart(labels, vals):
+def barChart(labels, vals, stat):
     fig = plt.figure(figsize = (10, 5))
 
     # creating the bar plot
@@ -14,7 +14,7 @@ def barChart(labels, vals):
     plt.ylim(0, max(stats) + 5)
 
     plt.xlabel("Players")
-    plt.ylabel("No. of goals scored")
+    plt.ylabel("No. of " + stat)
     plt.title("Liverpool FC Player Stats")
     plt.show()
     
@@ -63,27 +63,42 @@ data = {
 
 seasons = list(data.keys())
     
-ans = ""
+ans1 = ""
+ans2 = ""
 
-while (ans != "0"):
-    print ("Select a season")
-    
+while (ans1 != 0 and ans2 != 0):    
     for i, s in enumerate(seasons):
         print (str(i + 1) + ": " + seasonName(s))
         
     print ("0: Exit")
+
+    while True:
+        try:
+            ans1 = int(input("Select a season"))
+            break
+        except:
+            print("Invalid option. Please try again.")    
+
+    if (ans1 == 0): break
+    if (ans1 > len(seasons) + 1 or ans1 < 0): continue  
+        
+    season = seasons[ans1 - 1]
     
-    input(ans)
-    season = seasons[ans - 1]
-    
-    print ("Select a stat")
     print ("1: goals")
     print ("2: appearances")
     print ("0: Exit")
 
-    input(ans)
-    if (ans == "1"): stat = "goals"
-    if (ans == "2"): stat = "appearances"
+    while True:
+        try:
+            ans2 = int(input("Select a stat"))
+            break
+        except:
+            print("Invalid option. Please try again.")
+    
+    if (ans2 == 1): stat = "goals"
+    if (ans2 == 2): stat = "appearances"
+    if (ans2 == 0): break
+    if (ans2 > 2 or ans2 < 0): continue
     
     players = list(data[season].keys())
     values = list(data[season].values())
@@ -91,6 +106,5 @@ while (ans != "0"):
     stats = [];
     for v in values:
         stats.append(v[stat])
-    
 
-    barChart(players, stats)
+    barChart(players, stats, stat)
