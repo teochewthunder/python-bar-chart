@@ -1,21 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt 
 
-def barChart(labels, vals, stat):
+def barChart(labels, vals, season, stat):
     fig = plt.figure(figsize = (10, 5))
 
     # creating the bar plot
-    plt.bar(labels, vals, color ='maroon', 
-            width = 0.8)
+    plt.bar(labels, vals, color = (1, 0.2, 0.2), width = 0.8, ls = "--")
 
     for index, value in enumerate(vals):
         plt.text(index - (len(str(value)) * 0.02), value + 1, str(value))
 
     plt.ylim(0, max(stats) + 5)
+    plt.xticks(rotation=90)
 
     plt.xlabel("Players")
     plt.ylabel("No. of " + stat)
-    plt.title("Liverpool FC Player Stats")
+    plt.title("Liverpool FC Player Stats for " + seasonName(season))
     plt.show()
     
 def seasonName(year):
@@ -23,41 +23,45 @@ def seasonName(year):
   
 # creating the dataset
 data = {
-    1998: {
-        "Michael Owen": {"goals": 23, "appearances": 50},
-        "Robbie Fowler": {"goals": 18, "appearances": 45},
-        "Steve McManaman": {"goals": 10, "appearances": 52},
-        # Add more players as necessary
+    2017: {
+        "Mohamed Salah": {"goals": 44, "appearances": 52},
+        "Roberto Firminho": {"goals": 27, "appearances": 54},
+        "Sadio Mane": {"goals": 20, "appearances": 44},
+        "Alex Oxlade-Chamberlain": {"goals": 5, "appearances": 42}
     },
-    1999: {
-        "Michael Owen": {"goals": 19, "appearances": 48},
-        "Robbie Fowler": {"goals": 15, "appearances": 42},
-        "Emile Heskey": {"goals": 12, "appearances": 50},
-        # Add more players as necessary
+    2018: {
+        "Mohamed Salah": {"goals": 27, "appearances": 52},
+        "Roberto Firminho": {"goals": 16, "appearances": 48},
+        "Sadio Mane": {"goals": 26, "appearances": 50},
+        "Alex Oxlade-Chamberlain": {"goals": 0, "appearances": 2}
     },
-    2000: {
-        "Michael Owen": {"goals": 25, "appearances": 47},
-        "Emile Heskey": {"goals": 14, "appearances": 49},
-        "Steven Gerrard": {"goals": 10, "appearances": 44},
-        # Add more players as necessary
+    2019: {
+        "Mohamed Salah": {"goals": 23, "appearances": 48},
+        "Roberto Firminho": {"goals": 12, "appearances": 52},
+        "Sadio Mane": {"goals": 22, "appearances": 47},
+        "Alex Oxlade-Chamberlain": {"goals": 8, "appearances": 43}
     },
-    2001: {
-        "Michael Owen": {"goals": 28, "appearances": 45},
-        "Emile Heskey": {"goals": 16, "appearances": 48},
-        "Steven Gerrard": {"goals": 12, "appearances": 43},
-        # Add more players as necessary
+    2020: {
+        "Mohamed Salah": {"goals": 31, "appearances": 51},
+        "Roberto Firminho": {"goals": 9, "appearances": 48},
+        "Sadio Mane": {"goals": 16, "appearances": 48},
+        "Alex Oxlade-Chamberlain": {"goals": 1, "appearances": 17},
+        "Diogo Jota": {"goals": 13, "appearances": 30}
     },
-    2002: {
-        "Michael Owen": {"goals": 24, "appearances": 46},
-        "Emile Heskey": {"goals": 11, "appearances": 47},
-        "Steven Gerrard": {"goals": 14, "appearances": 42},
-        # Add more players as necessary
+    2021: {
+        "Mohamed Salah": {"goals": 31, "appearances": 51},
+        "Roberto Firminho": {"goals": 11, "appearances": 35},
+        "Sadio Mane": {"goals": 23, "appearances": 51},
+        "Alex Oxlade-Chamberlain": {"goals": 3, "appearances": 29},
+        "Diogo Jota": {"goals": 21, "appearances": 55},
+        "Luis Diaz": {"goals": 6, "appearances": 26}
     },
-    2003: {
-        "Michael Owen": {"goals": 18, "appearances": 41},
-        "Harry Kewell": {"goals": 9, "appearances": 36},
-        "Steven Gerrard": {"goals": 10, "appearances": 40},
-        # Add more players as necessary
+    2022: {
+        "Mohamed Salah": {"goals": 30, "appearances": 51},
+        "Roberto Firminho": {"goals": 13, "appearances": 35},
+        "Alex Oxlade-Chamberlain": {"goals": 1, "appearances": 13},
+        "Diogo Jota": {"goals": 7, "appearances": 28},
+        "Luis Diaz": {"goals": 5, "appearances": 21}
     }
 }
 
@@ -107,4 +111,4 @@ while (ans1 != 0 and ans2 != 0):
     for v in values:
         stats.append(v[stat])
 
-    barChart(players, stats, stat)
+    barChart(players, stats, season, stat)
