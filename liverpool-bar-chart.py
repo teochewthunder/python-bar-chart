@@ -12,6 +12,7 @@ def barChart(labels, vals, season, stat):
 
     plt.ylim(0, max(stats) + 5)
     plt.xticks(rotation=90)
+    plt.axhline(y=np.nanmean(vals))
 
     plt.xlabel("Players")
     plt.ylabel("No. of " + stat)
