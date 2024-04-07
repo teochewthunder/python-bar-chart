@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 
 def barChart(labels, vals, season, stat):
-    fig = plt.figure(figsize = (10, 5))
+    plt.figure(figsize = (10, 5))
 
     # creating the bar plot
     plt.bar(labels, vals, color = (1, 0.2, 0.2), width = 0.8, ls = "--")
