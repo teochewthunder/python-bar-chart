@@ -4,13 +4,12 @@ import matplotlib.pyplot as plt
 def barChart(labels, vals, season, stat):
     plt.figure(figsize = (10, 5))
 
-    # creating the bar plot
-    plt.bar(labels, vals, color = (1, 0.2, 0.2), width = 0.8, ls = "--")
+    plt.bar(labels, vals, color = (1, 0.2, 0.2))
 
     for index, value in enumerate(vals):
         plt.text(index - (len(str(value)) * 0.02), value + 1, str(value))
 
-    plt.ylim(0, max(stats) + 5)
+    plt.ylim(0, max(vals) + 5)
     plt.xticks(rotation=90)
     plt.axhline(y=np.nanmean(vals))
 
