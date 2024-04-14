@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt 
 
 def barChart(labels, vals, season, stat):
-    plt.figure(figsize = (10, 5))
+    fig = plt.figure(figsize = (10, 5))
 
-    plt.bar(labels, vals, color = (1, 0.2, 0.2))
+    plt.bar(labels, vals, color=(1, 0.2, 0.2))
 
     for index, value in enumerate(vals):
         plt.text(index - (len(str(value)) * 0.02), value + 1, str(value))
@@ -21,7 +21,6 @@ def barChart(labels, vals, season, stat):
 def seasonName(year):
     return str(year) + "/" + str(year + 1)
   
-# creating the dataset
 data = {
     2017: {
         "Mohamed Salah": {"goals": 44, "appearances": 52},
@@ -84,7 +83,7 @@ while (ans1 != 0 and ans2 != 0):
             print("Invalid option. Please try again.")    
 
     if (ans1 == 0): break
-    if (ans1 > len(seasons) + 1 or ans1 < 0): continue  
+    if (ans1 > len(seasons) or ans1 < 0): continue  
         
     season = seasons[ans1 - 1]
     
