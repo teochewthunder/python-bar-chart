@@ -7,10 +7,13 @@
 ## Script
 - Display a numbered list of available seasons in the data, with a 0 for exiting.
 - Request for input.
-- Utilize a `Try-catch` to ensure only numerical data is entered.
-- If value is numerical but out of bounds, do-over.
-- If value is 0, end program.
+  - Utilize a `Try-catch` to ensure only numerical data is entered.
+  - If value is numerical but out of bounds, do-over.
+  - If value is 0, end program.
 - If value is valid, display a menu of options for goals and appearances, with a 0 for exiting.
+  - Utilize a `Try-catch` to ensure only numerical data is entered.
+  - If value is numerical but out of bounds, do-over.
+  - If value is 0, end program.
 - Use the selected season and the stat type to generate the bar chart.
 
 ## Chart
