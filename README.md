@@ -20,4 +20,4 @@ We use the `matplotlib` library to plot the bar chart, and the `numpy` library t
 - Labels to display the numerical values:
   - Requires a `For` loop on the enumerated values.
   - Use the index for horizontal positioning, and the value for vertical positioning.
-  - Use `ylim()` method from `matplotlib` to give more head room to display these values.
+  - Use `ylim()` method from `matplotlib` to give more head room to display these values. The argument passed in is the maximum value of the values, derived from using `max()`, plus a little bit.
